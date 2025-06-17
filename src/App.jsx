@@ -54,10 +54,15 @@ function App() {
                 className="custom-datepicker"
               />
             </div>
+            {startDate && endDate && startDate > endDate && (
+              <p style={{ color: "red", margin: "5px 0" }}>
+                Началната дата не може да бъде след крайната дата!
+              </p>
+            )}
             <button
               className="load-button"
               onClick={handleDateSubmit}
-              disabled={!startDate || !endDate}
+              disabled={!startDate || !endDate || startDate > endDate}
             >
               Зареди мачове
             </button>
